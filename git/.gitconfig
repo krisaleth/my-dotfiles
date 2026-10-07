@@ -19,3 +19,10 @@
 
 [color]
     ui = auto
+
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    lg = log --oneline --decorate --graph --all
