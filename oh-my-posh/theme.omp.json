@@ -1,0 +1,92 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#7DCFFF",
+          "style": "plain",
+          "template": "{{ if .WSL }}󰌽 WSL {{ end }}{{ .Icon }} ",
+          "type": "os"
+        },
+        {
+          "background": "#1F2335",
+          "foreground": "#BB9AF7",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ .UserName }}",
+          "type": "session"
+        },
+        {
+          "background": "#1F2335",
+          "foreground": "#F7768E",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": "  root",
+          "type": "root"
+        },
+        {
+          "background": "#1F2335",
+          "foreground": "#E0AF68",
+          "powerline_symbol": "\ue0b0",
+          "options": {
+            "time_format": "15:04:05"
+          },
+          "style": "powerline",
+          "template": " {{ .CurrentDate | date .Format }}",
+          "type": "time"
+        },
+        {
+          "background": "#1F2335",
+          "foreground": "#7AA2F7",
+          "powerline_symbol": "\ue0b0",
+          "options": {
+            "folder_separator_icon": "/",
+            "style": "full"
+          },
+          "style": "powerline",
+          "template": " 󰉋 {{ .Path }}",
+          "type": "path"
+        },
+        {
+          "background": "#1F2335",
+          "foreground": "#9ECE6A",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} 󰘷 {{ .StashCount }}{{ end }}",
+          "type": "git"
+        },
+        {
+          "background": "#9ECE6A",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#F7768E{{ end }}"
+          ],
+          "foreground": "#1A1B26",
+          "powerline_symbol": "\ue0b0",
+          "options": {
+            "always_enabled": true
+          },
+          "style": "powerline",
+          "template": " 󰄬 ",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#7AA2F7",
+          "style": "plain",
+          "template": "❯ ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 4
+}

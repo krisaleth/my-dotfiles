@@ -1,0 +1,21 @@
+[user]
+    name = krisaleth
+    email = kimtam486@gmail.com
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = code --wait
+
+[pull]
+    rebase = false
+
+[push]
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[color]
+    ui = auto
