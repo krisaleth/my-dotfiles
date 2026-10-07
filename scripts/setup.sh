@@ -2,7 +2,7 @@
 
 set -e
 
-DOTFILES="/mnt/c/Users/Kris/dotfiles"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 echo "Setting up dotfiles..."
 
