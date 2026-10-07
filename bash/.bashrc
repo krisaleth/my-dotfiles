@@ -123,10 +123,4 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
-# Modern CLI aliases
-alias cat='batcat'
-alias ls='eza'
-alias ll='eza -lah'
-alias la='eza -la'
-alias lt='eza --tree --level=2'
 eval "$(oh-my-posh init bash --config /mnt/c/Users/Kris/dotfiles/oh-my-posh/theme.omp.json)"
