@@ -88,3 +88,4 @@ dotfiles/
 ├── scripts/           # Installation and setup scripts
 └── windows-terminal/  # Windows Terminal settings
 ```
+
