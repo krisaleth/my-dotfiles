@@ -12,7 +12,9 @@ compinit
 export PATH="$HOME/.local/bin:$PATH"
 
 # Zoxide
-eval "$(zoxide init zsh)"
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -36,4 +38,7 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # Oh My Posh
-eval "$(oh-my-posh init zsh --config "$DOTFILES/oh-my-posh/theme.omp.json")"
+if command -v oh-my-posh >/dev/null 2>&1 &&
+   [[ -f "$DOTFILES/oh-my-posh/theme.omp.json" ]]; then
+    eval "$(oh-my-posh init zsh --config "$DOTFILES/oh-my-posh/theme.omp.json")"
+fi
