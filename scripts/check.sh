@@ -32,7 +32,7 @@ if command -v pwsh >/dev/null 2>&1; then
     echo "→ PowerShell syntax"
     pwsh -NoProfile -Command \
         "& { \$null = [System.Management.Automation.Language.Parser]::ParseFile(
-            '$DOTFILES/scripts/setup.ps1',
+            '$DOTFILES/scripts/setup.ps1',cd
             [ref]\$null,
             [ref]\$null
         ) }"
