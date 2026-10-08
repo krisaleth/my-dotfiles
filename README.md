@@ -34,8 +34,14 @@ Setup dotfiles:
 This configures:
 
 * Bash
+* Zsh
 * Git
-* Bash aliases
+* Bash and Zsh aliases
+* Oh My Posh
+* zoxide
+* fzf
+
+Zsh is used as the primary interactive shell. Bash configuration is kept for compatibility.
 
 ## Windows
 
@@ -62,15 +68,49 @@ The configuration includes:
 * `fetch.prune`
 * `pull.rebase`
 
+User identity is configured separately in the local `~/.gitconfig` and is not stored in this repository.
+
 ## Shell
 
-Bash config:
+### Zsh
+
+Zsh configuration:
+
+```text
+~/dotfiles/zsh/.zshrc
+```
+
+Aliases:
+
+```text
+~/dotfiles/zsh/.zsh_aliases
+```
+
+Features:
+
+* Native command completion
+* History search
+* fzf history search with `Ctrl+R`
+* zoxide
+* Oh My Posh
+
+### Bash
+
+Bash configuration:
 
 ```text
 ~/dotfiles/bash/.bashrc
 ```
 
-PowerShell config:
+Aliases:
+
+```text
+~/dotfiles/bash/.bash_aliases
+```
+
+### PowerShell
+
+PowerShell configuration:
 
 ```text
 ~/dotfiles/powershell/Microsoft.PowerShell_profile.ps1
@@ -85,7 +125,7 @@ dotfiles/
 ├── oh-my-posh/        # Oh My Posh theme
 ├── packages/          # APT package list
 ├── powershell/        # PowerShell profile
-├── scripts/           # Installation and setup scripts
-└── windows-terminal/  # Windows Terminal settings
+├── scripts/            # Installation and setup scripts
+├── windows-terminal/  # Windows Terminal settings
+└── zsh/               # Zsh configuration
 ```
-

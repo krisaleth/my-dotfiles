@@ -1,0 +1,5 @@
+alias cat='batcat'
+alias ls='eza'
+alias ll='eza -lah'
+alias la='eza -la'
+alias lt='eza --tree --level=2'

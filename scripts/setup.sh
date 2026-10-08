@@ -30,6 +30,10 @@ link_file() {
 link_file "$DOTFILES/bash/.bashrc" "$HOME/.bashrc"
 link_file "$DOTFILES/bash/.bash_aliases" "$HOME/.bash_aliases"
 
+# Zsh
+link_file "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+link_file "$DOTFILES/zsh/.zsh_aliases" "$HOME/.zsh_aliases"
+
 # Git
 git config --global include.path "$DOTFILES/git/.gitconfig"
 echo "Configured Git: $DOTFILES/git/.gitconfig"
