@@ -1,131 +1,195 @@
 # Dotfiles
 
-Windows + WSL2 development environment.
+Personal dotfiles for a lightweight Windows + WSL2 development environment.
+
+## Features
+
+* Zsh as the primary WSL shell
+* Bash compatibility
+* PowerShell 7 configuration
+* Oh My Posh prompt
+* zoxide
+* fzf
+* eza and bat
+* Git configuration and aliases
+* Windows Terminal configuration
+* Idempotent setup scripts
+
+## Requirements
+
+### WSL2
+
+* Ubuntu 24.04 or compatible Debian-based distribution
+* `curl`
+* `bash`
+* `git`
+* `zsh`
+
+### Windows
+
+* Windows Terminal
+* PowerShell 7
+* Oh My Posh
+* MesloLGL Nerd Font
 
 ## Installation
 
 Clone the repository:
 
-```bash
+```
 git clone https://github.com/krisaleth/my-dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-## WSL2
+### WSL2
 
-Install APT packages:
+Install the required APT packages:
 
-```bash
+```
 sudo apt install $(cat packages/apt.txt)
 ```
 
-Install user-local tools:
+Install external tools:
 
-```bash
+```
 ./scripts/install.sh
 ```
 
-Setup dotfiles:
+Setup the dotfiles:
 
-```bash
+```
 ./scripts/setup.sh
 ```
 
-This configures:
+The setup script creates symlinks for Bash and Zsh configuration and configures Git to include the repository's Git configuration.
 
-* Bash
-* Zsh
-* Git
-* Bash and Zsh aliases
-* Oh My Posh
-* zoxide
-* fzf
+### Windows
 
-Zsh is used as the primary interactive shell. Bash configuration is kept for compatibility.
+Open PowerShell and run:
 
-## Windows
-
-Run PowerShell as your normal user and execute:
-
-```powershell
+```
 .\scripts\setup.ps1
 ```
 
-This links the PowerShell profile to the dotfiles repository.
+The script creates a symlink from the PowerShell profile to the repository.
 
-## Git
+Windows Terminal settings are stored in:
 
-Git configuration is loaded from:
-
-```text
-~/dotfiles/git/.gitconfig
+```
+windows-terminal/
 ```
 
-The configuration includes:
+They include the PowerShell and WSL profiles, Tokyo Night color scheme, MesloLGL Nerd Font, and custom keybindings.
 
-* Git aliases
-* `push.autoSetupRemote`
-* `fetch.prune`
-* `pull.rebase`
-
-User identity is configured separately in the local `~/.gitconfig` and is not stored in this repository.
-
-## Shell
+## Shell Configuration
 
 ### Zsh
 
-Zsh configuration:
+Configuration:
 
-```text
-~/dotfiles/zsh/.zshrc
+```
+zsh/.zshrc
 ```
 
 Aliases:
 
-```text
-~/dotfiles/zsh/.zsh_aliases
+```
+zsh/.zsh_aliases
 ```
 
-Features:
+Features include:
 
 * Native command completion
 * History search
-* fzf history search with `Ctrl+R`
+* fzf keybindings
 * zoxide
 * Oh My Posh
 
 ### Bash
 
-Bash configuration:
+Configuration:
 
-```text
-~/dotfiles/bash/.bashrc
+```
+bash/.bashrc
 ```
 
 Aliases:
 
-```text
-~/dotfiles/bash/.bash_aliases
 ```
+bash/.bash_aliases
+```
+
+Bash is kept as a compatibility shell while Zsh is the primary interactive shell.
 
 ### PowerShell
 
-PowerShell configuration:
+Configuration:
 
-```text
-~/dotfiles/powershell/Microsoft.PowerShell_profile.ps1
 ```
+powershell/Microsoft.PowerShell_profile.ps1
+```
+
+Features include:
+
+* PSReadLine history predictions
+* Windows editing mode
+* Terminal-Icons
+* Oh My Posh
+
+## Git
+
+Git configuration:
+
+```
+git/.gitconfig
+```
+
+Includes:
+
+* Git aliases
+* `push.autoSetupRemote`
+* `fetch.prune`
+* `pull.rebase`
+* VS Code as the Git editor
+
+User identity and credentials are kept in the local Git configuration and are not stored in this repository.
+
+## Validation
+
+Run the repository checks with:
+
+```
+./scripts/check.sh
+```
+
+The validation script checks:
+
+* Bash syntax
+* Zsh syntax
+* Git configuration
+* Git whitespace
+* PowerShell syntax when `pwsh` is available
 
 ## Structure
 
-```text
+```
 dotfiles/
 ├── bash/              # Bash configuration
 ├── git/               # Git configuration
 ├── oh-my-posh/        # Oh My Posh theme
 ├── packages/          # APT package list
 ├── powershell/        # PowerShell profile
-├── scripts/            # Installation and setup scripts
+├── scripts/           # Installation and setup scripts
 ├── windows-terminal/  # Windows Terminal settings
 └── zsh/               # Zsh configuration
 ```
+
+## Philosophy
+
+Keep the environment:
+
+* Lightweight
+* Reproducible
+* Cross-platform where practical
+* Easy to understand
+* Free from unnecessary plugins and frameworks
