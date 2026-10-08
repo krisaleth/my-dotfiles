@@ -87,11 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -115,12 +110,28 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+DOTFILES="$(cd "$(dirname "$(readlink -f "$HOME/.bashrc")")/.." && pwd)"
+
+# PATH
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(zoxide init bash)"
+
+# Zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
+# fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
-[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]]; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
 
-eval "$(oh-my-posh init bash --config /mnt/c/Users/Kris/dotfiles/oh-my-posh/theme.omp.json)"
+# Oh My Posh
+if command -v oh-my-posh >/dev/null 2>&1 &&
+   [[ -f "$DOTFILES/oh-my-posh/theme.omp.json" ]]; then
+    eval "$(oh-my-posh init bash --config "$DOTFILES/oh-my-posh/theme.omp.json")"
+fi
